@@ -20,7 +20,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
@@ -63,6 +62,22 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				
+					<!--Build an executable JAR -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.0</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<classpathPrefix>lib/</classpathPrefix>
+								<mainClass>Software_Testing.VV_Project.generator</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
 		</plugins>
 	</build>
 
