@@ -1,4 +1,4 @@
-package classTested2;
+package classTested;
 
 import static org.junit.Assert.assertFalse;
 
