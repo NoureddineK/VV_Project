@@ -107,7 +107,6 @@ public class generator {
 	public CtInvocation createObserve(CtMethod getter, CtInvocation invocationToGetter) {
 		CtTypeAccess accessToObserver =
 				factory.createTypeAccess(factory.createCtTypeReference(Observer.class));
-		System.out.println("observer : "+factory.Type().get(Observer.class).getMethodsByName("observe").get(0));
 		CtExecutableReference refObserve = factory.Type().get(Observer.class)
 				.getMethodsByName("observe").get(0).getReference();
 		return factory.createInvocation(

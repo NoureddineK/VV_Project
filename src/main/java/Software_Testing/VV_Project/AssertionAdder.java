@@ -15,6 +15,10 @@ import static Software_Testing.VV_Project.Util.getGetters;
 import static Software_Testing.VV_Project.Util.getKey;
 import static Software_Testing.VV_Project.Util.invok;
 
+/**
+ * @author Fahim MERZOUK & Noureddine KADRI
+ *
+ */
 public class AssertionAdder {
 
 	private Factory factory;
@@ -26,7 +30,6 @@ public class AssertionAdder {
 	@SuppressWarnings("unchecked")
 	public CtMethod addAssertion(CtMethod<?> testMethod, List<CtLocalVariable> ctLocalVariables) {
 		ctLocalVariables.forEach(ctLocalVariable -> this.addAssertion(testMethod, ctLocalVariable));
-		System.out.println("test method dans addassertion"+testMethod);
 		return testMethod;
 	}
 
@@ -38,12 +41,9 @@ public class AssertionAdder {
 			String key = getKey(getter);
 			CtInvocation invocationToGetter =
 					invok(getter, localVariable);
-			System.out.println("expected : "+factory.createLiteral(Observer.observations.get(key)));
-			System.out.println("ob : "+Observer.observations);
 			CtInvocation invocationToAssert = createAssert("assertEquals",
 					factory.createLiteral(Observer.observations.get(key)), // expected
 					invocationToGetter); // actual
-			System.out.println("-----------assertion added------------");
 			testMethod.getBody().insertEnd(invocationToAssert);
 		});
 		

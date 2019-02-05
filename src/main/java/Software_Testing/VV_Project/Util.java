@@ -16,9 +16,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Fahim MERZOUK & Noureddine KADRI
+ *
+ */
 public class Util {
 
-	//private static Factory factory;
 	
 	public static String getKey(CtMethod method) {
 		return method.getParent(CtClass.class).getSimpleName() + "#" + method.getSimpleName();

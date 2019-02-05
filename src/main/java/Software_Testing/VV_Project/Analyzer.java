@@ -13,6 +13,10 @@ import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
 
 
+/**
+ * @author Fahim MERZOUK & Noureddine KADRI
+ *
+ */
 public class Analyzer {
 	/**
 	 * @param testMethod: method to analyze
