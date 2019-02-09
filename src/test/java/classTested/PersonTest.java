@@ -1,4 +1,4 @@
-package Software_Testing.VV_Project;
+package classTested;
 
 import static org.junit.Assert.assertFalse;
 
