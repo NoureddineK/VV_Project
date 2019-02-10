@@ -14,7 +14,7 @@ import spoon.reflect.visitor.filter.TypeFilter;
 
 
 /**
- * @author Fahim MERZOUK & Noureddine KADRI
+ * @author Fahim MERZOUK & Noureddine KADRI 
  *
  */
 public class Analyzer {

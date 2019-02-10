@@ -63,8 +63,9 @@ public class generator {
 
 	
 	/**
-	 * @param testMethod
-	 * @param ctLocalVariables
+	 * create observer of getters in test cases
+	 * @param testMethod the test method where create observers of getters
+	 * @param ctLocalVariables the list of variables that we want to observe
 	 */
 	public void instrument(CtMethod<?> testMethod, List<CtLocalVariable> ctLocalVariables) {
 		ctLocalVariables.forEach(ctLocalVariable -> this.instrument(testMethod, ctLocalVariable));
@@ -73,8 +74,9 @@ public class generator {
 
 	
 	/**
-	 * @param launcher 
-	 * @param testMethod
+	 * 
+	 * @param launcher
+	 * @param testMethod 
 	 * @param localVariables
 	 */
 	public void collect(Launcher launcher, CtMethod<?> testMethod, List<CtLocalVariable> localVariables) {
@@ -104,6 +106,12 @@ public class generator {
 			throw new RuntimeException(e);
 		}	
 	}
+	/**
+	 * function that creates an observer of local variables
+	 * @param getter
+	 * @param invocationToGetter
+	 * @return
+	 */
 	public CtInvocation createObserve(CtMethod getter, CtInvocation invocationToGetter) {
 		CtTypeAccess accessToObserver =
 				factory.createTypeAccess(factory.createCtTypeReference(Observer.class));
@@ -145,7 +153,6 @@ public class generator {
 
 	public static void main(String[] args) {
 		Analyzer a = new Analyzer();
-	//	/home/fmerzouk/eclipse-workspace/v_v/VV_Project
 		Launcher launcher = new Launcher();
 		if(args.length < 1 || args.length > 1) throw new IllegalArgumentException("Entrez le chemin vers le projet que vous voulez testez");
 		launcher.addInputResource(args[0]+"/src/main/java/");
@@ -174,7 +181,6 @@ public class generator {
 					CtMethod methodSpooned = assertionAdder.addAssertion(ctMethod, localVariablesPerTestMethod.get(ctMethod));
 
 					theClass.setSimpleName(type.getSimpleName()+"_generated");
-					//theClass.removeMethod(ctMethod);
 					theClass.addMethod(methodSpooned);
 					processor.createJavaFile(theClass);
 				}

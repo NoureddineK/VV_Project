@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Fahim MERZOUK & Noureddine KADRI
+ * @author Fahim MERZOUK & Noureddine KADRI 
  *
  */
 public class Observer {

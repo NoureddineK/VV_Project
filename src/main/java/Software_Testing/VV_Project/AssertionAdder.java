@@ -33,6 +33,11 @@ public class AssertionAdder {
 		return testMethod;
 	}
 
+	/**
+	 * Add assertion in test method to test local variables in that method
+	 * @param testMethod test method
+	 * @param localVariable local variable
+	 */
 	@SuppressWarnings("unchecked")
 	public void addAssertion(CtMethod testMethod, CtLocalVariable localVariable) {
 		List<CtMethod> getters =
@@ -49,6 +54,12 @@ public class AssertionAdder {
 		
 	}
 
+	/**
+	 * create assertion of type name with using parameters
+	 * @param name type of assertion
+	 * @param parameters parameter of the assertion
+	 * @return
+	 */
 	public static CtInvocation createAssert(String name, CtExpression... parameters) {
 		final Factory factory = parameters[0].getFactory();
 		CtTypeAccess accessToAssert =
